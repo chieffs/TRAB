@@ -52,7 +52,7 @@ $$
 Thus, $0+m=m$, $1+m=(0++)+m=(0+m)++=m++$.
 We will use the shorthand version of addition, by considering $n++ = n+1$ and $n+m$ as a number itself, for example:
 $$
-1 + 2 = (0++)+((0++)++) = (0++) +(0++))++ =(((0+0)++)++)++=((0++)++)++ = 3
+2 + 1 = ((0++)++) + (0++) = (0++) +(0++))++ =(((0+0)++)++)++=((0++)++)++ = 3
 $$
 for short
 $$
@@ -75,7 +75,21 @@ $$
 thus we have closed the induction and proved $0+n=n+0=n$
 
 ### Lemma 2.2.3
-For any natural numbers $n,m$, $n+(m++)=(n+m)++$ 
+For any natural numbers $n,m$, $n+(m++)=(n+m)++$.
+#### Proof
+Inducting on $n$ and keeping m fixed we have,
+$0+(m++) = m++$ which is exactly the same as $(0+m)++=m++$.
+Lets suppose inductively that $n+(m++)=(n+m)++$ , then we will have:
+$(n++)+(m++) = (n+(m++))++$, from the inductive hypothesis we have that
+$n+(m++)=(n+m)++$, so, $(n+(m++))++=((n+m)++)++$
+Now, we only have to prove that $((n++)+m)++=((n+m)++)++$, which is easy, as the definition of addition shows us that $(n++)+m=(n+m)++$, so
+$$
+((n++)+m)++ = ((n+m)++)++ = (n++)+ (m++)
+$$
+thus we have closed the induction loop and proved that $n+(m++)=(n+m)++$
+
+
+
 ## Proof ideas (informal)
 
 ## Exercises checklist
