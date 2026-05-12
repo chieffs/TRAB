@@ -38,12 +38,17 @@ Let $P(n)$ be any property pertaining to a natural number $n$. Suppose that $P(0
 We define the increment operator ++ as such, assuming that 0 exists, as in axiom [[#2.2]]
 $0++$ is the successor of 0 and $(0++)++$ is the successor of $0++$, so on and so forth, for every natural $n, \, n++$ is the successor of $n$
 
-### Natural numbers
+### 2.1.3
+Numbers.
+We define 1 to be the number $0++$, 2 to be the number $(0++)++$,  3 to be the number $((0++)++)++$ and so on and so forth.
+### 2.1.1
+Natural numbers.
 The natural numbers are defined as the set
 $$
-\mathbb{N} \coloneqq \{ 0,0++,(0++)++,\dots \}   
+\mathbb{N} \coloneqq \{ 0,0++,(0++)++,\dots \}   = \ \{ 0,1,2,3,\dots \}
 $$
-### Addition
+### 2.2.1
+Addition.
 This is the definition of addition in the natural numbers.
 Ler $m$ be a natural number. To add 0 to $m$, we define $0+m \coloneqq m$. Now suppose inductively that we have defined how to add $n$ to $m$. Then we can add $n++$ to $m$ by defining
 $$
@@ -59,7 +64,9 @@ $$
 1+2 = 3
 $$
 
-### Positive natural numbers
+### 2.2.7
+Positive natural numbers.
+A natural number $n$ is said to be positive iff (if and only if) it is not equal to 0.
 ## Key lemmas / theorems
 
 ### Lemma 2.2.2
@@ -97,7 +104,7 @@ For $n=0$ we have, $0+m=m$ and $m+0=m$ by [[#Lemma 2.2.2]].
 Lets assume inductively that this is true for $n$,
 so $n+m=m+n$ for $n$.
 Now we must prove that $(n++)+m = m + (n++)$.
-We know by the [[#Addition|definition of addition]] that $(n++)+m=(n+m)++$. We also have, by [[#Lemma 2.2.3]] that $m + (n++)=(n+m)++$. Thus we have reached
+We know by the [[#2.2.1|definition of addition]] that $(n++)+m=(n+m)++$. We also have, by [[#Lemma 2.2.3]] that $m + (n++)=(n+m)++$. Thus we have reached
 $$
 (n++)+m = (n+m)++ = m + (n++)
 $$
@@ -117,7 +124,7 @@ From the left hand side we have
 $$
 ((n++)+b) + c = ((n+b)++) + c = ((n+b)+c)++ = (n+(b+c))++
 $$
-this is true from the [[#Addition]] definition and the inductive hypothesis.
+this is true from the [[#2.2.1|addition]] definition and the inductive hypothesis.
 From the hand side we have, from the definition of addition
 $$
 (n++)+(b+c) = (n+(b+c))++
@@ -134,7 +141,7 @@ We will prove this by inducting on $a$.
 First consider the base case $0+b=0+c$, this case is trivial as $0+b=b$ and $0+c=c$ then $b=c$.
 Lets assume inductively we have a case $a$ such that $a+b=a+c$ implies $b=c$.
 So we will try to prove that $(a++)+b=(a++)+c \implies b=c$.
-By the definition of [[#Addition]] we have that:
+By the definition of [[#2.2.1|addition]] we have that:
 $$
 (a++)+b=(a+b)++
 $$
