@@ -260,19 +260,25 @@ Lets start with the first implication, $a\geq b \implies a+c \geq b+c$
 $$
 \begin{cases}
 a\geq b \iff a = b+ k_{1} \\
-a + c \geq b  + c \iff a+c = b+c+k_{2}
 \end{cases}
 $$
-With $k_{1},k_{2}$ being natural numbers. 
-From the first inequality we can assert that $a=b+k_{1}$, so, substituting that in the second equation we have
+With $k_{1}$ being a natural number. 
+We can sum an arbitrary number $c$ to reach
 $$
-b+k_{1} + c = b + c + k_{2}
+a+c = b+k_{1}+c = (b+c) + k_{1}
 $$
-Which, by the cancelation law gives us
+this is exactly the definition of greater than so,
 $$
-k_{1} = k_{2}
+a\geq b \implies a+c \geq b + c
 $$
-
+Coming from the right side is a similar process in which we use the cancellation law to reach the definition of greater than.
+$$
+a+c \geq b+c \implies a+c = b + c + k_{1} \implies a=b+k_{1}
+$$
+Therefore
+$$
+a\geq b\iff a+c\geq b+c
+$$
 
 ### Proposition 2.2.13
 Trichotomy of order for natural numbers.
