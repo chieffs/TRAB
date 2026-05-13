@@ -19,16 +19,18 @@ inductive TaoNat : Type
 
 deriving DecidableEq
 
+namespace TaoNat
+
+/-- Tao’s `+`: `0 + m = m`, `(n++) + m = (n + m)++` (recursion on the left summand). -/
+def add : TaoNat → TaoNat → TaoNat
+  | zero, m => m
+  | succ n', m => succ (add n' m)
+
+end TaoNat
+
 open TaoNat (zero succ)
 
 instance : OfNat TaoNat 0 where ofNat := zero
-
-/-! ## Addition (Tao 2.2.1: recursion on the left summand) -/
-
-/-- Tao’s `+`: `0 + m = m`, `(n++) + m = (n + m)++`. -/
-protected def add : TaoNat → TaoNat → TaoNat
-  | zero, m => m
-  | succ n', m => succ (TaoNat.add n' m)
 
 instance : Add TaoNat := ⟨TaoNat.add⟩
 
