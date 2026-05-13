@@ -12,8 +12,8 @@ namespace RealAnalysis.Tao.Analysis1.Ch02
 
 open TaoNat (zero succ)
 
-/-- Tao Lemma 2.2.2: `n + 0 = n`. -/
-lemma lemma_2_2_2 (n : TaoNat) : n + 0 = n := by
+/-- Tao Lemma 2.2.2: `n + 0 = n` (spelled with `zero` so `rw` matches `… + zero`). -/
+lemma lemma_2_2_2 (n : TaoNat) : n + zero = n := by
   induction n with
   | zero => rfl
   | succ n ih => rw [succ_add, ih]
@@ -21,7 +21,7 @@ lemma lemma_2_2_2 (n : TaoNat) : n + 0 = n := by
 /-- Tao Lemma 2.2.3: `n + (m++) = (n + m)++`. -/
 lemma lemma_2_2_3 (n m : TaoNat) : n + succ m = succ (n + m) := by
   induction n with
-  | zero => rw [zero_add, zero_add]; rfl
+  | zero => rw [zero_add, zero_add]
   | succ n ih => rw [succ_add, ih, succ_add]
 
 /-- Tao Proposition 2.2.4: addition is commutative. -/
