@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/Tao-Chapter-Note.md",
+                "file": "book/Tao-Chapter-2-Note.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Tao-Chapter-Note"
+              "title": "Tao-Chapter-2-Note"
             }
           }
         ]
@@ -189,10 +189,10 @@
   },
   "active": "e63558b2e8fc6dc3",
   "lastOpenFiles": [
+    "templates/Tao-Chapter-Note.md",
     "book/Tao-Chapter-2-Note.md",
     "Excalidraw/Tao-Chapter-2-Note 2026-05-12 18.49.58.excalidraw.md",
     "Excalidraw",
-    "templates/Tao-Chapter-Note.md",
     "book/tao-analysis-2",
     "Study-Hub.md"
   ]

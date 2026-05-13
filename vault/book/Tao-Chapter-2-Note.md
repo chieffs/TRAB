@@ -61,7 +61,7 @@ $$
 $$
 for short
 $$
-1+2 = 3
+2+1 = 3
 $$
 
 ### 2.2.7
@@ -115,7 +115,7 @@ Addition is associative.
 For any natural numbers $a,b,c$, we have $(a+b)+c = a+(b+c)$
 
 #### Proof
-This proof is actually an exercise, the exercise 2.2.1 and thus will be proved in the lean exercises part.
+This proof is actually the exercise 2.2.1 and thus will be proved in the lean exercises part.
 Given two arbitrary natural numbers, $b,c$, lets prove inductively that $(a+b)+c = a+(b+c)$, inducting on $a$.
 For the base case we have $(0+b)+c = b + c$ and $0+(b+c) = (b+c)=b+c$. 
 Then, lets assume that we have a number $n$ such that $(n+b)+c=n+(b+c)$.
