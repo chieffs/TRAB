@@ -298,7 +298,7 @@ This would imply that if $k_{1}=0$ we would have
 $$
 a+0=b \iff a = b
 $$
-Which is not true, therefore we must have some number positive number $k_{1}$ such that $a+k_{1}=b$. (This is the proof of exercise 6, i know. I couldn't figure out how to deal with this without proving the next exercise, so i'll just go with it and use the same reasoning for next case).
+Which is not true, therefore we must have some number positive number $k_{1}$ such that $a+k_{1}=b$.
 We know that the addition is associative and commutative and that every positive number has exactly one natural predecessor, so we can write $k_{1}=k_{-1}++=k_{-1}+1$. (This $-1$ is just a notation as negative number don't exist in our current universe.). Using this we can reach
 $$
 a+k_{1}=b \to a + k_{-1}+1 = a+1 + k_{-1} = (a++) + k_{-1}=b
@@ -312,19 +312,43 @@ with $k$ being a natural number
 For the right side proof that $a++ \leq b \implies a<b$ lets assume that there is a counterexample for this.
 Lets say that there is a number $a++$ that has the property of 
 $$
-a++\leq b \implies a \leq b
+a++\leq b \implies a = b
 $$
 Then we would have the following predicament
 $$
-(a++) + k_{1} = b \implies a+k_{2} = b \rightarrow (a++)+k_{1} = a + k_{2} \implies k_{1}+1 = k_{2}
+(a++) + k_{1} = b \implies a+k_{1} + 1 = b \to b + k_{1} + 1 = b 
 $$
-Substituting this if the first equation will leave us with
+which would eventually lead to
 $$
-a+ k_{1} + 1 = b =  
+k_{1}+1=k_{1}++=0
+$$
+But that is a direct contradiction of axiom [[#2.3]]
+Therefore 
+$$
+a\neq b
+$$ and we know that
+$$
+a+1+k_{1} = b
+$$
+so taking $1+k_{1} = k_{2}$ we will achieve
+$$
+a+k_{2} = b, a\neq b
+$$
+Which is the exact definition of
+$$
+a<b
 $$
 
-
-
+##### Proof 6
+We already reached half of the proof on the previous exercise, but let's recap!
+$$
+a<b \iff a+k_{1} = b \, , a\neq b
+$$
+Therefore, if $k_{1}=0$ we would have
+$$
+a+0=b \to a=b
+$$
+So, from $a<b$ we can conclude that $a+k_{1}=b$ 
 ### Proposition 2.2.13
 Trichotomy of order for natural numbers.
 Let $a,b$ be natural numbers. Then exactly one of the following statements is true:
