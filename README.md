@@ -23,6 +23,7 @@ cd Trab
 
 ```text
 .
+├── LICENSE                   # MIT
 ├── README.md                 # This file
 ├── lean/                     # Lean 4 Lake project (Mathlib)
 │   ├── lakefile.lean
@@ -159,4 +160,6 @@ Commit notes and Lean together so each commit tells a coherent story (for exampl
 
 ## License
 
-No book text from Tao is included in this repository; only your notes and Lean sources. Choose a license for your own code and notes (for example MIT for Lean files) if you publish the repo publicly.
+This repository is licensed under the [MIT License](LICENSE).
+
+Terence Tao’s *Analysis I/II* is not included here (only your notes and Lean sources). Mathlib is a separate dependency under its own license; see [mathlib4](https://github.com/leanprover-community/mathlib4).
