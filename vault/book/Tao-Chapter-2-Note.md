@@ -2,18 +2,18 @@
 book: Tao — Analysis I
 edition: 4th
 chapter: "2"
-chapter_slug: Real Numbers
+chapter_slug: natural-numbers
 tags:
   - tao
-  - analysis-2
-lean_file: Chapter02_NaturalNumbers.lean
+  - analysis-1
+lean_file: lean/RealAnalysis/Tao/Analysis1/Chapter02/Basic.lean
 date: 12/05/2026
 ---
 
-# Ch.2 — title
+# Ch. 2 — Natural numbers
 
 ## Summary (own words)
-Definition of the real numbers base on Peano Axioms and the properties emerging from them
+Definition of the natural numbers from the Peano axioms and the properties that follow (Tao Ch. 2, 4th ed.).
 ## Axioms
 ### 2.1
 0 is a natural number
@@ -206,7 +206,11 @@ $$
 #### Proof
 This proof is the exercise 2.2.4
 ### Proposition 2.2.13
-Strong 
+Strong principle of induction.
+Let $m_{0}$ be a natural number, and let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m\geq m_{0}$, we have the following implication: If $P(m')$ is true for all natural numbers $m_{0}\leq m'<m$ then $P(m)$ is also true. (In particular, this means that $P(m_{0})$ is true, since in this case the hypothesis is vacuous.)Then we can conclude that $P(m)$ is true for all natural numbers $m\geq m_{0}$.
+
+#### Proof
+This proof is the exercise 2.2.5
 ## Exercises checklist
 
 | # | statement (short) | Lean status |
@@ -215,7 +219,10 @@ Strong
 
 ## Lean log
 
-- Module: `lean/...`
-- Mathlib highlights:
+- **Axioms & definitions:** `lean/RealAnalysis/Tao/Analysis1/Chapter02/Axioms.lean` — Tao 2.1–2.5, `TaoGe` / `TaoGt` / `TaoPositive`, numerals `tao_one` … `tao_three`, bridge lemmas to `≤` / `<`.
+- **Book lemmas (proved):** `…/Chapter02/Lemmas.lean` — Lemma 2.2.2, 2.2.3; Propositions 2.2.4, 2.2.6, 2.2.8; Corollary 2.2.9.
+- **Your exercises (`sorry`):** `…/Chapter02/Exercises.lean` — 2.2.1–2.2.5 as in the note.
+- Import stack for later chapters: `import RealAnalysis.Tao.Analysis1.Chapter02.Basic`.
+- Mathlib: built on `ℕ` = Mathlib natural numbers (same rules as Tao).
 
 ## Questions / follow-ups
