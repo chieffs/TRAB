@@ -301,6 +301,27 @@ $$
 Which is not true, therefore we must have some number positive number $k_{1}$ such that $a+k_{1}=b$. (This is the proof of exercise 6, i know. I couldn't figure out how to deal with this without proving the next exercise, so i'll just go with it and use the same reasoning for next case).
 We know that the addition is associative and commutative and that every positive number has exactly one natural predecessor, so we can write $k_{1}=k_{-1}++=k_{-1}+1$. (This $-1$ is just a notation as negative number don't exist in our current universe.). Using this we can reach
 $$
+a+k_{1}=b \to a + k_{-1}+1 = a+1 + k_{-1} = (a++) + k_{-1}=b
+$$
+This is the definition of greater than that we have, so 
+$$
+a++ \leq b \iff (a++) + k =b
+$$
+with $k$ being a natural number
+
+For the right side proof that $a++ \leq b \implies a<b$ lets assume that there is a counterexample for this.
+Lets say that there is a number $a++$ that has the property of 
+$$
+a++\leq b \implies a \leq b
+$$
+Then we would have the following predicament
+$$
+(a++) + k_{1} = b \implies a+k_{2} = b \rightarrow (a++)+k_{1} = a + k_{2} \implies k_{1}+1 = k_{2}
+$$
+Substituting this if the first equation will leave us with
+$$
+a+ k_{1} + 1 = b =  
+$$
 
 
 
