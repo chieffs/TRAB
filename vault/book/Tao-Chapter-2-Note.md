@@ -219,10 +219,10 @@ This proof is the exercise 2.2.5
 
 ## Lean log
 
-- **Axioms & definitions:** `lean/RealAnalysis/Tao/Analysis1/Chapter02/Axioms.lean` — Tao 2.1–2.5, `TaoGe` / `TaoGt` / `TaoPositive`, numerals `tao_one` … `tao_three`, bridge lemmas to `≤` / `<`.
-- **Book lemmas (proved):** `…/Chapter02/Lemmas.lean` — Lemma 2.2.2, 2.2.3; Propositions 2.2.4, 2.2.6, 2.2.8; Corollary 2.2.9.
-- **Your exercises (`sorry`):** `…/Chapter02/Exercises.lean` — 2.2.1–2.2.5 as in the note.
+- **Axioms & definitions:** `lean/RealAnalysis/Tao/Analysis1/Chapter02/Axioms.lean` — custom type `TaoNat`, Tao-style `+`, Tao 2.1–2.5, `TaoGe` / `TaoGt` / `TaoLt` / `TaoPositive`, numerals `tao_one` … `tao_three`. Imports only **`Mathlib.Tactic`** (no `Mathlib.Data`).
+- **Book lemmas (proved):** `…/Chapter02/Lemmas.lean` — Lemma 2.2.2, 2.2.3; Propositions 2.2.4, 2.2.6, 2.2.8; Corollary 2.2.9 (from axioms + earlier lemmas in this chapter only).
+- **Your exercises (`sorry`):** `…/Chapter02/Exercises.lean` — 2.2.1–2.2.5 as in the note (same import rule: tactics only from Mathlib).
 - Import stack for later chapters: `import RealAnalysis.Tao.Analysis1.Chapter02.Basic`.
-- Mathlib: built on `ℕ` = Mathlib natural numbers (same rules as Tao).
+- Later chapters may import `Mathlib.Data.*` as you choose; Chapter 2 stays synthetic `TaoNat` unless you refactor.
 
 ## Questions / follow-ups

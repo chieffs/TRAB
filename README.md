@@ -65,7 +65,7 @@ Use a **folder** under `Analysis1/` (example: `Chapter02/` for natural numbers i
 | File | Role |
 |------|------|
 | `Axioms.lean` | Primitive notions + **axioms** (or a bundled `structure` whose fields are the assumptions you want to discharge later). |
-| `Lemmas.lean` | Imports `Axioms`. Proves lemmas using only that layer (plus Mathlib you explicitly allow). |
+| `Lemmas.lean` | Imports `Axioms`. Proves lemmas using only that layer (Chapter 2 uses **no** `Mathlib.Data.*` — only `Mathlib.Tactic`). |
 | `Exercises.lean` | Imports `Lemmas`. Book exercises; may use axioms and lemmas. |
 | `Basic.lean` | Imports the three files above **in order** so other chapters can `import …Chapter02.Basic` once. |
 
