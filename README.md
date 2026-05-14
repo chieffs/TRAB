@@ -4,7 +4,7 @@ Short for **T**ao **R**eal **A**nalysis **B**ook (in **Lean**): a study workspac
 
 **Edition note:** folder names such as `Chapter02` follow **Tao *Analysis I*, 4th edition** chapter numbering (for example **natural numbers = Chapter 2**). If you use another edition, renumber Lean paths and notes to match your book.
 
-**Remote:** [github.com/chieffs/Trab](https://github.com/chieffs/Trab)
+**Remote:** [github.com/chieffs/TRAB](https://github.com/chieffs/TRAB)
 
 **Who am I and goals for this project:**
 
@@ -17,8 +17,8 @@ I hope you have a nice time or learn something from this repository, as I certai
 Clone:
 
 ```bash
-git clone https://github.com/chieffs/Trab.git
-cd Trab
+git clone https://github.com/chieffs/TRAB.git
+cd TRAB
 ```
 
 ## Prerequisites
