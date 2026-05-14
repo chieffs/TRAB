@@ -139,34 +139,20 @@ theorem exercise_2_2_3_succ_iff {a b : TaoNat} : TaoGt b a ↔ TaoGe b (succ a):
 
   · -- Backward direction
     intro h_b
-    -- Second goal: Prove b ≠ a (or a ≠ b)
-      -- 1. Assume the counterexample (that they are equal)
+    unfold TaoGe at h_b
+    rcases h_b with ⟨ k,h_k ⟩
+    unfold TaoGt
+    constructor
+    ·
+      unfold TaoGe
+      use k.succ
+      conv =>
+        rhs
+        rw[prop_2_2_4,succ_add,prop_2_2_4,<-succ_add]
+      rw [h_k]
+    · -- Second goal: Prove a ≠ b
       intro h_eq
-
-      -- Your existing h_k is something like: b = a.succ + k
-      -- 2. Substitute b with a
-      rw [h_eq] at h_k
-      -- Now h_k : a = a.succ + k
-
-      -- 3. Rewrite the isolated 'a' as 'a + 0'
-      rw [← lemma_2_2_2] at h_k
-      -- Now h_k : a + 0 = a.succ + k
-
-      -- 4. Shift the successor on the right side to get 'a + k.succ'
-      -- (Use your associativity/commutativity/successor lemmas here)
-      -- E.g., rw [succ_add] at h_k
-      -- Now h_k : a + 0 = a + k.succ
-
-      -- 5. Apply the cancellation law!
-      apply prop_2_2_6 at h_k
-      -- Now h_k : 0 = k.succ (or zero = k.succ)
-
-      -- 6. Contradict Axiom 2.3
-      -- In Lean, Peano's axiom that 0 is not a successor is often built-in.
-      -- If Tao's Axiom 2.3 is explicitly defined in your setup as a lemma
-      -- (e.g., `axiom_2_3` or `succ_neq_zero`), you apply it to h_k.
-      -- Often, Lean is smart enough to just close it with:
-      contradiction
+      sorry
 
 
 
