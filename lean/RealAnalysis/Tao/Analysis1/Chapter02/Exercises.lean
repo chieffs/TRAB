@@ -115,7 +115,7 @@ theorem exercise_2_2_3_add_preserves {a b c : TaoNat} : TaoGe a b ↔ TaoGe (a +
 
 
 /-- (5) `a < b` iff `a++ ≤ b` in Tao’s sense (`TaoGe (succ a) b`). -/
-theorem exercise_2_2_3_succ_iff {a b : TaoNat} : TaoGt a b ↔ TaoGe (succ a) b := by
+theorem exercise_2_2_3_succ_iff {a b : TaoNat} : TaoGt b a ↔ TaoGe b (succ a):= by
   constructor
   · -- Forward direction
     intro h
@@ -125,11 +125,11 @@ theorem exercise_2_2_3_succ_iff {a b : TaoNat} : TaoGt a b ↔ TaoGe (succ a) b 
     have h_k_pos : TaoPositive k := by
       intro h_zero
       rw [h_zero] at h_k
-      change a = b+zero at h_k
+      change b = a+zero at h_k
       rw [lemma_2_2_2] at h_k
       contradiction
-    use k.succ
-    rw [h_k,prop_2_2_4,<- succ_add,prop_2_2_4] at ⊢
+    use k
+    rw [h_k,prop_2_2_4,succ_add,prop_2_2_4] at ⊢
 
   · -- Backward direction
     intro h_b
@@ -140,17 +140,7 @@ theorem exercise_2_2_3_succ_iff {a b : TaoNat} : TaoGt a b ↔ TaoGe (succ a) b 
     ·
       unfold TaoGe
       use k
-      conv =>
-        rhs
-        rw [<- h_k]
-      have h_a_diff_succ: a + zero !=a.succ + zero := by
-        conv =>
-          rhs
-          rw[succ_add,prop_2_2_4,<- succ_add,prop_2_2_4]
-        apply prop_2_2_6
-
     ·
-      intro h_ineq
       sorry
 
 
