@@ -243,14 +243,17 @@ theorem exercise_2_2_4_trichotomy (a b : TaoNat) :
     | succ a ih =>
       rcases ih with  h_gt | h_eq | h_lt
       ·
-        left
-        unfold TaoGt
         rw [exercise_2_2_3_succ_iff] at h_gt
-        use h_gt
+        right
+        left
+        unfold TaoGe at h_gt
+        symm
+        conv =>
+          rhs
+          rw [<- lemma_2_2_2 a.succ]
+
         sorry
       ·
-        left
-        unfold TaoGt
         sorry
       .
         sorry
@@ -267,12 +270,10 @@ theorem exercise_2_2_4_trichotomy (a b : TaoNat) :
       constructor
       .
         by_contra
-        rcases this with ⟨ hip_gt1, hip_gt2 ⟩
-        unfold TaoGt at hip_gt1 hip_gt2
-        rcases hip_gt1 with ⟨ hip_ge1, hip_false1 ⟩
-        rcases hip_gt2 with ⟨ hip_ge2, hip_false2 ⟩
-        have hip_false := exercise_2_2_3_antisymmetric hip_ge2
-        contradiction
+        unfold TaoGt at this
+        sorry
+
+
       .
         by_contra
         rcases this with ⟨ hip_eq, hip_gt⟩
