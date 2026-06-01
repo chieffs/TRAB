@@ -394,7 +394,21 @@ b = a + c
 $$
 Which would mean that $a=b$, another contradiction.
 Now that we know that only one case can be true at a time we will approach the second part of the proposition, one of the statements is true.
-Lets construct a $P(x):= x<b \ \lor x=b \ \lor x>b$. We know that only one of the conditions may be true at a time.
+Lets construct a $P(x):= x<b \ \lor x=b \ \lor x>b$ where $b$ is an arbitrary natural number. We know that only one of the conditions may be true at a time.
+Lets begin for the case $P(0)$.
+$$
+P(0) = 0< b \ \lor 0 = b \lor 0>b  
+$$
+We know that $0>b$ is impossible, as this would mean that $b++ \leq 0$, a contradiction of axiom [[#2.3]]. If $b=0$ than the property is true and if we have $b\neq 0$ we have
+$$
+0<b \iff b = 0 + d
+$$
+If we use $d=b$ we have that this is true.
+Lets assume that this is true for $P(n)$, this will be our inductive hypothesis, then we will try to prove 
+$$
+P(n+1) = n+1 < b \ \lor n+1 = b \lor n+1 > b
+$$
+We know by [[#Proposition 2.2.12]] that $a<b \iff a++\leq b$, this would mean that $a++ =b \ \lor a++<b$, so for the case $n<b$ we have already proven the property. Now, for the case $n>b$  we would have by [[#Proposition 2.2.12]] as well that $n+1 > b$ 
 
 
 ### Proposition 2.2.13
