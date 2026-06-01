@@ -374,7 +374,29 @@ $$
 #### Proof
 This proof is the exercise 2.2.4
 Let's start with the uniqueness of the trichotomy.
-Lets star
+Assume $a<b$, this would mean that there is a $d\neq0$ such that
+$$
+\begin{align}
+&b=a+d \implies a < a+ d \implies\\
+&a = a + d + c  \iff 0 = c+d \iff c = d = 0
+\end{align}
+$$
+Therefore $a<b$ means that $a\neq b$. We could also unfold the definition of [[#2.2.11|strictly greater than]] to see that, by definition, $a\neq b$, but where would the fun of that be.
+For the case of  $a>b$ and $a<b$ we could do a similar approach using the definition to get
+$$
+\begin{align} 
+&\begin{cases} 
+a = b + d  \\
+b = a + c
+\end{cases}  \\
+& a= a + d + c \iff 0=d+c \iff d=c=0
+\end{align}
+$$
+Which would mean that $a=b$, another contradiction.
+Now that we know that only one case can be true at a time we will approach the second part of the proposition, one of the statements is true.
+Lets construct a $P(x):= x<b \ \lor x=b \ \lor x>b$. We know that only one of the conditions may be true at a time.
+
+
 ### Proposition 2.2.13
 Strong principle of induction.
 Let $m_{0}$ be a natural number, and let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m\geq m_{0}$, we have the following implication: If $P(m')$ is true for all natural numbers $m_{0}\leq m'<m$ then $P(m)$ is also true. (In particular, this means that $P(m_{0})$ is true, since in this case the hypothesis is vacuous.)Then we can conclude that $P(m)$ is true for all natural numbers $m\geq m_{0}$.
