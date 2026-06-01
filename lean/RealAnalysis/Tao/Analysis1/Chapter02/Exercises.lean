@@ -217,7 +217,71 @@ theorem exercise_2_2_4_trichotomy (a b : TaoNat) :
       (¬(TaoGt a b ∧ a = b)) ∧
       (¬(TaoGt a b ∧ TaoGt b a)) ∧
       (¬(a = b ∧ TaoGt b a)) := by
-  sorry
+  constructor
+  .
+    induction a with
+    | zero =>
+      cases b with
+      | zero =>
+        right
+        left
+        rfl
+      | succ d =>
+        right
+        right
+        unfold TaoGt
+        constructor
+        ·
+          use d.succ
+          rw [zero_add]
+        ·
+          apply axiom_2_3
+
+    | succ ih =>
+      cases b with
+      | zero =>
+        right
+        right
+        unfold TaoGt
+        unfold TaoGe
+        constructor
+        .
+          use prop_
+        .
+          sorry
+      | succ d =>
+        sorry
+  .
+    constructor
+    .
+      by_contra
+      rcases this with ⟨ hip_gt, hip_eq ⟩
+      rw [hip_eq] at hip_gt
+      unfold TaoGt at hip_gt
+      rcases hip_gt with ⟨ hip_ge, hip_false ⟩
+      contradiction
+    .
+      constructor
+      .
+        by_contra
+        rcases this with ⟨ hip_gt1, hip_gt2 ⟩
+        unfold TaoGt at hip_gt1 hip_gt2
+        rcases hip_gt1 with ⟨ hip_ge1, hip_false1 ⟩
+        rcases hip_gt2 with ⟨ hip_ge2, hip_false2 ⟩
+        have hip_false := exercise_2_2_3_antisymmetric hip_ge1 hip_ge2
+        contradiction
+      .
+        by_contra
+        rcases this with ⟨ hip_eq, hip_gt⟩
+        rw [hip_eq] at hip_gt
+        unfold TaoGt at hip_gt
+        rcases hip_gt with ⟨ hip_ge, hip_false ⟩
+        contradiction
+
+
+
+
+
 
 /-! ### Exercise 2.2.5 — strong induction -/
 
