@@ -213,9 +213,9 @@ Tao Proposition 2.2.13 (trichotomy) / Exercise 2.2.4:
 exactly one of `a < b`, `a = b`, `a > b` holds (Tao’s strict order).
 -/
 theorem exercise_2_2_4_trichotomy (a b : TaoNat) :
-    (TaoGt a b ∨ a = b ∨ TaoGt b a) ∧
-      (¬(TaoGt a b ∧ a = b)) ∧
-      (¬(TaoGt a b ∧ TaoGt b a)) ∧
+    (TaoGt b a ∨ a = b ∨ TaoGt a b) ∧
+      (¬(TaoGt b a ∧ a = b)) ∧
+      (¬(TaoGt b a ∧ TaoGt b a)) ∧
       (¬(a = b ∧ TaoGt b a)) := by
   constructor
   .
@@ -227,39 +227,33 @@ theorem exercise_2_2_4_trichotomy (a b : TaoNat) :
         left
         rfl
       | succ d =>
-        right
-        right
-        unfold TaoGt
-        constructor
-        ·
-          use d.succ
-          rw [zero_add]
-        ·
-          apply axiom_2_3
-
-    | succ ih =>
-      cases b with
-      | zero =>
         left
         unfold TaoGt
-        unfold TaoGe
         constructor
-        .
-          use ih.succ
-          rw [zero_add]
-        .
-          apply axiom_2_3
+        ·
+          unfold TaoGe
+          use d.succ
+          rfl
+        ·
+          by_contra
+          apply axiom_2_3 at this
+          contradiction
 
-      | succ d =>
-        right
-        right
+
+    | succ a ih =>
+      rcases ih with  h_gt | h_eq | h_lt
+      ·
+        left
         unfold TaoGt
-        unfold TaoGe
-        constructor
-        .
-          sorry
-        .
-          sorry
+        rw [exercise_2_2_3_succ_iff] at h_gt
+        use h_gt
+        sorry
+      ·
+        left
+        unfold TaoGt
+        sorry
+      .
+        sorry
   .
     constructor
     .
@@ -277,7 +271,7 @@ theorem exercise_2_2_4_trichotomy (a b : TaoNat) :
         unfold TaoGt at hip_gt1 hip_gt2
         rcases hip_gt1 with ⟨ hip_ge1, hip_false1 ⟩
         rcases hip_gt2 with ⟨ hip_ge2, hip_false2 ⟩
-        have hip_false := exercise_2_2_3_antisymmetric hip_ge1 hip_ge2
+        have hip_false := exercise_2_2_3_antisymmetric hip_ge2
         contradiction
       .
         by_contra
