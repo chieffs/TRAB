@@ -9,7 +9,7 @@ tags:
 lean_file: lean/RealAnalysis/Tao/Analysis1/Chapter02/Basic.lean
 date: 12/05/2026
 ---
-
+co
 # Ch. 2 — Natural numbers
 
 ## Summary (own words)

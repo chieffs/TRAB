@@ -240,23 +240,26 @@ theorem exercise_2_2_4_trichotomy (a b : TaoNat) :
     | succ ih =>
       cases b with
       | zero =>
+        left
+        unfold TaoGt
+        unfold TaoGe
+        constructor
+        .
+          use ih.succ
+          rw [zero_add]
+        .
+          apply axiom_2_3
+
+      | succ d =>
         right
         right
         unfold TaoGt
+        unfold TaoGe
         constructor
         .
-          unfold TaoGe
-          use zero
-          symm
-          rw [lemma_2_2_2]
-          by_contra
-          apply axiom_2_3
-          contradiction
+          sorry
         .
           sorry
-
-      | succ d =>
-        sorry
   .
     constructor
     .
