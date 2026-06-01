@@ -373,6 +373,8 @@ $$
 
 #### Proof
 This proof is the exercise 2.2.4
+Let's start with the uniqueness of the trichotomy.
+Lets star
 ### Proposition 2.2.13
 Strong principle of induction.
 Let $m_{0}$ be a natural number, and let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m\geq m_{0}$, we have the following implication: If $P(m')$ is true for all natural numbers $m_{0}\leq m'<m$ then $P(m)$ is also true. (In particular, this means that $P(m_{0})$ is true, since in this case the hypothesis is vacuous.)Then we can conclude that $P(m)$ is true for all natural numbers $m\geq m_{0}$.
