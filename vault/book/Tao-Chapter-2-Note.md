@@ -374,7 +374,7 @@ $$
 #### Proof
 This proof is the exercise 2.2.4
 Let's start with the uniqueness of the trichotomy.
-Assume $a<b$, this would mean that there is a $d\neq0$ such that
+Assume $a<b$ and $a>b$, this would mean that there is a $d\neq0$ such that
 $$
 \begin{align}
 &b=a+d \implies a < a+ d \implies\\
@@ -408,7 +408,12 @@ Lets assume that this is true for $P(n)$, this will be our inductive hypothesis,
 $$
 P(n+1) = n+1 < b \ \lor n+1 = b \lor n+1 > b
 $$
-We know by [[#Proposition 2.2.12]] that $a<b \iff a++\leq b$, this would mean that $a++ =b \ \lor a++<b$, so for the case $n<b$ we have already proven the property. Now, for the case $n>b$  we would have by [[#Proposition 2.2.12]] as well that $n+1 > b$ 
+We know by [[#Proposition 2.2.12]] that $n<b \iff n++\leq b$, this would mean that $n++ =b \ \lor n++<b$, so for the case $n<b$ we have already proven the property. Now, for the case $n>b$  we would have by [[#Proposition 2.2.12]] as well that $n+1 > b$, from the sixth property, using $d+1$ instead of $d$. Now, for the last case we have $n = b$, then
+$$
+n+1 = b +1 \iff n+1 > b
+$$
+Therefore, $P(n+1)$ is true, thus completing the induction loop
+
 
 
 ### Proposition 2.2.13
