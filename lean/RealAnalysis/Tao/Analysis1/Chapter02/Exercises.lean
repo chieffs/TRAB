@@ -215,8 +215,8 @@ exactly one of `a < b`, `a = b`, `a > b` holds (Tao’s strict order).
 theorem exercise_2_2_4_trichotomy (a b : TaoNat) :
     (TaoGt b a ∨ a = b ∨ TaoGt a b) ∧
       (¬(TaoGt b a ∧ a = b)) ∧
-      (¬(TaoGt b a ∧ TaoGt b a)) ∧
-      (¬(a = b ∧ TaoGt b a)) := by
+      (¬(TaoGt b a ∧ TaoGt a b)) ∧
+      (¬(a = b ∧ TaoGt a b)) := by
   constructor
   .
     induction a with
@@ -298,19 +298,40 @@ theorem exercise_2_2_4_trichotomy (a b : TaoNat) :
             rw [lemma_2_2_2] at h_le
             right
             right
-            sorry
-          | succ d =>
-            left
             unfold TaoGt
             constructor
             .
-              sorry
+              unfold TaoGe
+              use zero.succ.succ
+              rw [h_le, lemma_2_2_3,lemma_2_2_3, lemma_2_2_2]
             .
               by_contra
               rw [h_le] at this
+              rw [<- lemma_2_2_2 b,<- lemma_2_2_3,<- lemma_2_2_3] at this
               apply prop_2_2_6 at this
               apply axiom_2_3 at this
-              sorry
+              contradiction
+          | succ d =>
+            right
+            right
+            unfold TaoGt
+            constructor
+            .
+              unfold TaoGe
+              use d.succ.succ.succ
+              conv at h_le =>
+                rhs
+                rw [prop_2_2_4,lemma_2_2_3,prop_2_2_4,<-lemma_2_2_3]
+              rw [h_le, <-lemma_2_2_3]
+            .
+              by_contra
+              rw [h_le,prop_2_2_4,lemma_2_2_3,prop_2_2_4,<-lemma_2_2_3,<-lemma_2_2_3] at this
+              conv at this =>
+                rhs
+                rw[<- lemma_2_2_2 b]
+              apply prop_2_2_6 at this
+              apply axiom_2_3 at this
+              contradiction
   .
     constructor
     .
@@ -325,9 +346,28 @@ theorem exercise_2_2_4_trichotomy (a b : TaoNat) :
       .
         by_contra
         unfold TaoGt at this
-        sorry
-
-
+        unfold TaoGe at this
+        rcases this with ⟨h_left,h_right⟩
+        rcases h_left with ⟨h_left,h_left_ineq⟩
+        rcases h_right with ⟨h_right,h_right_ineq⟩
+        rcases h_left with ⟨d,h_left⟩
+        rcases h_right with ⟨k,h_right⟩
+        rw [h_left] at h_right
+        conv at h_right =>
+          lhs
+          rw[<- lemma_2_2_2 a]
+        conv at h_right =>
+          rhs
+          rw [exercise_2_2_1 a d k]
+        apply prop_2_2_6 at h_right
+        symm at h_right
+        apply corollary_2_2_9 at h_right
+        rcases h_right with ⟨deq,keq⟩
+        rw [deq] at h_left
+        conv at h_left =>
+          rhs
+          apply lemma_2_2_2
+        contradiction
       .
         by_contra
         rcases this with ⟨ hip_eq, hip_gt⟩
@@ -339,7 +379,91 @@ theorem exercise_2_2_4_trichotomy (a b : TaoNat) :
 
 
 
+theorem exercise_2_2_4_trichotomy_ver_gemini (a b : TaoNat) : -- Gemini code for the above exercise, asked to use advanced lean features in order to use this as a blueprint for future exercises
+    (TaoGt b a ∨ a = b ∨ TaoGt a b) ∧
+    (¬(TaoGt b a ∧ a = b)) ∧
+    (¬(TaoGt b a ∧ TaoGt a b)) ∧
+    (¬(a = b ∧ TaoGt a b)) := by
 
+  -- FEATURE 1: The 'refine' tactic.
+  -- Instead of nesting 'constructor' multiple times, 'refine' lets us
+  -- split a 4-part AND statement into exactly 4 named goals instantly.
+  refine ⟨?existence, ?uniq1, ?uniq2, ?uniq3⟩
+
+  · case existence =>
+    induction a with
+    | zero =>
+      cases b with
+      | zero =>
+        -- FEATURE 2: Term mode for simple logic.
+        -- 'Or.inr (Or.inl rfl)' means "Right door, Left door, Reflexivity" in one line.
+        exact Or.inr (Or.inl rfl)
+      | succ d =>
+        left
+        -- 'exact ⟨witness, proof⟩' builds AND statements without 'constructor'
+        exact ⟨⟨d.succ, rfl⟩, fun h => by apply axiom_2_3 at h; contradiction⟩
+
+    | succ a ih =>
+      rcases ih with h_gt | h_eq | h_lt
+
+      · -- Timeline 1: b > a
+        rw [exercise_2_2_3_succ_iff] at h_gt
+        -- FEATURE 3: 'obtain' replaces 'unfold' and 'rcases' in one swift move.
+        obtain ⟨k, h_ge⟩ := h_gt
+        cases k with
+        | zero =>
+          right; left
+          rw [lemma_2_2_2] at h_ge
+          exact h_ge.symm
+        | succ d =>
+          left
+          -- FEATURE 4: Semicolons chain tactics on a single line
+          exact ⟨⟨d.succ, h_ge⟩, fun h => by rw [h] at h_ge; nth_rw 1 [← lemma_2_2_2 a.succ] at h_ge; apply prop_2_2_6 at h_ge; exact axiom_2_3 d h_ge.symm⟩
+      · -- Timeline 2: a = b
+        right; right
+        exact ⟨⟨zero.succ, by rw [h_eq]; sorry⟩, fun h => sorry⟩ -- Add your lemma chains here
+
+      · -- Timeline 3: a > b
+        right; right
+        obtain ⟨⟨k, hk⟩, hk_neq⟩ := h_lt
+        -- If a > b, then a = b + k. Thus a.succ = b + k.succ. No 'cases k' needed!
+        exact ⟨⟨k.succ, by sorry⟩, fun h => sorry⟩
+
+  · case uniq1 =>
+    -- Give the inequality a name (h_neq) instead of using the '_' blank
+    rintro ⟨⟨_h_ge, h_neq⟩, heq⟩
+
+    -- Lean sees a = b and b ≠ a, but wants them to match perfectly.
+    -- Flip a = b into b = a
+    symm at heq
+
+    -- Now h_neq (b ≠ a) and heq (b = a) are a perfect clash!
+    contradiction
+
+  · case uniq2 =>
+    rintro ⟨⟨⟨d, hd⟩, _⟩, ⟨⟨k, hk⟩, _⟩⟩
+    rw [hd] at hk
+    conv at hk => lhs; rw [← lemma_2_2_2 a]
+    conv at hk => rhs; rw [exercise_2_2_1 a d k]
+    apply prop_2_2_6 at hk
+    -- Flip it first!
+    symm at hk
+
+    -- Then apply the corollary!
+    apply corollary_2_2_9 at hk
+
+    obtain ⟨deq, keq⟩ := hk
+    -- Use 'obtain' to instantly extract the two zero proofs
+    rw [deq] at hd
+    conv at hd =>
+      rhs
+      apply lemma_2_2_2
+    contradiction
+
+  · case uniq3 =>
+    rintro ⟨heq, ⟨⟨k, hk⟩, _⟩⟩
+    rw [heq] at hk
+    contradiction
 
 /-! ### Exercise 2.2.5 — strong induction -/
 
