@@ -244,19 +244,73 @@ theorem exercise_2_2_4_trichotomy (a b : TaoNat) :
       rcases ih with  h_gt | h_eq | h_lt
       ·
         rw [exercise_2_2_3_succ_iff] at h_gt
-        right
-        left
         unfold TaoGe at h_gt
-        symm
-        conv =>
-          rhs
-          rw [<- lemma_2_2_2 a.succ]
-
-        sorry
+        rcases h_gt with ⟨ k , h_ge ⟩
+        cases k with
+          | zero =>
+            rw [lemma_2_2_2] at h_ge
+            right
+            left
+            symm
+            use h_ge
+          | succ d =>
+            left
+            unfold TaoGt
+            constructor
+            .
+              unfold TaoGe
+              use d.succ
+            .
+              by_contra
+              rw [h_ge] at this
+              conv at this =>
+                rhs
+                rw [<- zero_add a.succ]
+                apply prop_2_2_4
+              apply prop_2_2_6 at this
+              apply axiom_2_3 at this
+              contradiction
       ·
-        sorry
+        right
+        right
+        unfold TaoGt
+        constructor
+        .
+          unfold TaoGe
+          use zero.succ
+          rw [h_eq]
+          conv =>
+            rhs
+            rw [lemma_2_2_3, lemma_2_2_2]
+        .
+          rw [h_eq]
+          by_contra
+          rw [<- lemma_2_2_2 b,<- lemma_2_2_3] at this
+          apply prop_2_2_6 at this
+          apply axiom_2_3 at this
+          contradiction
       .
-        sorry
+        rw [exercise_2_2_3_succ_iff] at h_lt
+        unfold TaoGe at h_lt
+        rcases h_lt with ⟨ k , h_le ⟩
+        cases k with
+          | zero =>
+            rw [lemma_2_2_2] at h_le
+            right
+            right
+            sorry
+          | succ d =>
+            left
+            unfold TaoGt
+            constructor
+            .
+              sorry
+            .
+              by_contra
+              rw [h_le] at this
+              apply prop_2_2_6 at this
+              apply axiom_2_3 at this
+              sorry
   .
     constructor
     .
