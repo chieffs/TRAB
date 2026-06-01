@@ -374,25 +374,15 @@ $$
 #### Proof
 This proof is the exercise 2.2.4
 Let's start with the uniqueness of the trichotomy.
-Assume $a<b$ and $a>b$, this would mean that there is a $d\neq0$ such that
+Assume $a<b$ and $a>b$, this would mean that there is a $d\neq0$ such that $b = a +c$ and a $c\neq 0$ such that $b = a+d$
 $$
-\begin{align}
-&b=a+d \implies a < a+ d \implies\\
+\begin{align} 
+& a < a+ d \implies\\
 &a = a + d + c  \iff 0 = c+d \iff c = d = 0
 \end{align}
 $$
-Therefore $a<b$ means that $a\neq b$. We could also unfold the definition of [[#2.2.11|strictly greater than]] to see that, by definition, $a\neq b$, but where would the fun of that be.
-For the case of  $a>b$ and $a<b$ we could do a similar approach using the definition to get
-$$
-\begin{align} 
-&\begin{cases} 
-a = b + d  \\
-b = a + c
-\end{cases}  \\
-& a= a + d + c \iff 0=d+c \iff d=c=0
-\end{align}
-$$
-Which would mean that $a=b$, another contradiction.
+Using the definition of [[#2.2.11|strictly greater than]] to see that, by definition, $a\neq b$ gives us a contradiction.
+
 Now that we know that only one case can be true at a time we will approach the second part of the proposition, one of the statements is true.
 Lets construct a $P(x):= x<b \ \lor x=b \ \lor x>b$ where $b$ is an arbitrary natural number. We know that only one of the conditions may be true at a time.
 Lets begin for the case $P(0)$.
@@ -412,9 +402,7 @@ We know by [[#Proposition 2.2.12]] that $n<b \iff n++\leq b$, this would mean th
 $$
 n+1 = b +1 \iff n+1 > b
 $$
-Therefore, $P(n+1)$ is true, thus completing the induction loop
-
-
+Therefore, $P(n+1)$ is true, thus completing the induction loop.
 
 ### Proposition 2.2.13
 Strong principle of induction.
