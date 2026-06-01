@@ -243,12 +243,18 @@ theorem exercise_2_2_4_trichotomy (a b : TaoNat) :
         right
         right
         unfold TaoGt
-        unfold TaoGe
         constructor
         .
-          use prop_
+          unfold TaoGe
+          use zero
+          symm
+          rw [lemma_2_2_2]
+          by_contra
+          apply axiom_2_3
+          contradiction
         .
           sorry
+
       | succ d =>
         sorry
   .
