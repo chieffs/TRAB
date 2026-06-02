@@ -18,15 +18,3 @@ date:
 
 ## Key lemmas / theorems
 
-## Exercises checklist
-
-| # | statement (short) | Lean status |
-|---|-------------------|-------------|
-| | | todo / sorry / done |
-
-## Lean log
-
-- Module: `lean/...`
-- Mathlib highlights:
-
-## Questions / follow-ups
