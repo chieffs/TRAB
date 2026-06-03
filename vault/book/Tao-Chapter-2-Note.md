@@ -410,3 +410,12 @@ Let $m_{0}$ be a natural number, and let $P(m)$ be a property pertaining to an a
 
 #### Proof
 This proof is the exercise 2.2.5
+
+Let's start by building a property $Q(x)$, as suggested by Tao,
+$$
+Q(x):= 
+(m_{0}\leq n <x) \ \implies P(x) \ is \ True \\
+$$
+Then we will have $Q(x)$ vacuously true whenever $x\leq m_{0}$.
+So, if $m_{0}=0$ we will have $Q(0)$ vacuously true as well, as $0\leq n<0$ is always false, as $0<0$ is a false statement.
+Lets assume inductively that $Q(m)$ is true, then we will have that $P(x)$ is true for all $m_{0}\leq x<m$. By definition of $P(m)$ we have that $$
