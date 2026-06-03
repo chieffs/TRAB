@@ -498,17 +498,23 @@ theorem exercise_2_2_5_strong_induction
               | succ d =>
                 constructor
 
-                · -- Prove TaoGe k x (Using d as the witness)
+                ·
                   use d
-                  sorry
+                  rw [lemma_2_2_3] at hb
 
+                  apply  at hb
+
+                  exact hb
                 ·
                   by_contra
-                  rw [this] at hb
-                  conv =>
+                  rw [this,<-lemma_2_2_2 x.succ] at hb
+                  conv at hb =>
                     rhs
-                    rw [prop]
-                  sorry
+                    rw [lemma_2_2_3, prop_2_2_4,<- lemma_2_2_3,prop_2_2_4]
+                  symm at hb
+                  apply prop_2_2_6 at hb
+                  apply  axiom_2_3 at hb
+                  contradiction
           ⟩
 
 
