@@ -513,7 +513,7 @@ theorem exercise_2_2_5_strong_induction
                     rw [<- lemma_2_2_2 x]
                   congr
                   symm
-                  apply ofNat_zero
+                  change zero = 0 by => ofNat_zero
                   apply axiom_2_3
                   contradiction
 
