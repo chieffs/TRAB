@@ -413,9 +413,17 @@ This proof is the exercise 2.2.5
 
 Let's start by building a property $Q(x)$, as suggested by Tao,
 $$
-Q(x):= 
-(m_{0}\leq n <x) \ \implies P(x) \ is \ True \\
+Q(n):= 
+\forall \ x \ |\  m_{0}\leq x <n \ \implies P(x) \ is \ True \\
 $$
-Then we will have $Q(x)$ vacuously true whenever $x\leq m_{0}$.
+Then we will have $Q(n)$ vacuously true whenever $x\leq m_{0}$.
 So, if $m_{0}=0$ we will have $Q(0)$ vacuously true as well, as $0\leq n<0$ is always false, as $0<0$ is a false statement.
-Lets assume inductively that $Q(m)$ is true, then we will have that $P(x)$ is true for all $m_{0}\leq x<m$. By definition of $P(m)$ we have that $$
+Lets assume inductively that $Q(m)$ is true, then we will have that $P(x)$ is true for all $m_{0}\leq x<m$. By definition of the strong induction hypothesis (If $P(m')$ is true for all natural numbers $m_{0}\leq m'<m$ then $P(m)$ is also true), we have that $P(m)$ is true in this case as well. therefore
+$$
+Q(m+1) = \forall \ x \ m_{0}\leq x < m+1 \implies P(x) \ is \ True
+$$
+We know that $P(x)$ is true for all $m_{0}\leq x\leq m$, therefore, by [[#Proposition 2.2.12]] we have 
+$$
+\forall \ x \ , \ m_{0}\leq x<m+1 \implies P(x) \ is \ True
+$$
+As, $x+1\leq m \iff x<m+1$
