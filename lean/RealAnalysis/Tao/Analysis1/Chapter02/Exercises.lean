@@ -500,9 +500,12 @@ theorem exercise_2_2_5_strong_induction
 
                 ·
                   use d
-                  rw [lemma_2_2_3] at hb
+                  rw [<- lemma_2_2_2 k.succ,prop_2_2_4,lemma_2_2_3,lemma_2_2_3,prop_2_2_4,<- lemma_2_2_3 ,prop_2_2_4 x,<- lemma_2_2_3 ,prop_2_2_4 d] at hb
+                  conv at hb =>
+                    rhs
+                    rw [<- lemma_2_2_2 x.succ,prop_2_2_4 x.succ ,lemma_2_2_3 zero, prop_2_2_4 zero , <- lemma_2_2_3,prop_2_2_4 (x + zero.succ), ]
 
-                  apply  at hb
+                  apply lemma_2_2_3 at hb
 
                   exact hb
                 ·
