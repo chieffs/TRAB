@@ -494,35 +494,37 @@ theorem exercise_2_2_5_strong_induction
               contradiction
             | succ d =>
               have hk : k = x + d := by
-                rw [lemma_2_2_3,prop_2_2_4] at hb
+                rw [lemma_2_2_3] at hb
+                apply axiom_2_4 at hb
                 exact hb
-              constructor
+              cases d with
+              |zero =>
+                rw [lemma_2_2_2] at hk
+                apply h
+                use k
+                cases m0 with
+                |zero =>
+                  rw [zero_add]
+                  exact hk.symm
+                |succ a =>
+                  rw [hk,prop_2_2_4]
+                  conv =>
+                    lhs
+                    rw [<- lemma_2_2_2 x]
+                  congr
+                  symm
+                  apply ofNat_zero
+                  apply axiom_2_3
+                  contradiction
 
-              ·
-                use d
-                rw [<- lemma_2_2_2 k.succ,prop_2_2_4,lemma_2_2_3,lemma_2_2_3,prop_2_2_4,<- lemma_2_2_3 ,prop_2_2_4 x,<- lemma_2_2_3 ,prop_2_2_4 d] at hb
+              | succ  =>
                 conv at hb =>
                   rhs
-                  rw [<- lemma_2_2_2 x.succ,prop_2_2_4 x.succ ,lemma_2_2_3 zero, prop_2_2_4 zero ,
-                    <- lemma_2_2_3,prop_2_2_4 (x + zero.succ),<- exercise_2_2_1 , prop_2_2_4, prop_2_2_4]
-                rw [prop_2_2_4,<- prop_2_2_4 zero.succ] at hb
+                  rw [lemma_2_2_3, prop_2_2_4,<- lemma_2_2_3,prop_2_2_4]
+                symm at hb
                 apply prop_2_2_6 at hb
-                rw [prop_2_2_4 x]
-                exact hb
-              ·
-                cases d with
-                |zero =>
-                  sorry
-                | succ k =>
-                  by_contra
-                  rw [this,<-lemma_2_2_2 x.succ] at hb
-                  conv at hb =>
-                    rhs
-                    rw [lemma_2_2_3, prop_2_2_4,<- lemma_2_2_3,prop_2_2_4]
-                  symm at hb
-                  apply prop_2_2_6 at hb
-                  contradiction
-          ⟩
+                contradiction
+                sorry
 
 
 end RealAnalysis.Tao.Analysis1.Ch02
