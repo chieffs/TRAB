@@ -476,6 +476,8 @@ theorem exercise_2_2_5_strong_induction
     (m0 : TaoNat) (P : TaoNat → Prop)
     (h : ∀ m, TaoGe m m0 → (∀ m', TaoGe m' m0 → TaoLt m' m → P m') → P m) :
     ∀ m, TaoGe m m0 → P m := by
-  sorry
+    let Q (n : TaoNat) : Prop := ∀ x : TaoNat, (m0 ≤ x ∧ x < n) → P x
+
+
 
 end RealAnalysis.Tao.Analysis1.Ch02
