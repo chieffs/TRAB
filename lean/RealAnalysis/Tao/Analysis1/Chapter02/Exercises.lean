@@ -481,27 +481,36 @@ theorem exercise_2_2_5_strong_induction
       intro n
       induction n with
       | zero =>
-        unfold Q
-        intro x
-        have hZ : TaoGe m0 zero := by
-          unfold TaoGe
-          use m0
-          rw [prop_2_2_4,lemma_2_2_2]
-        rintro ⟨h_ge, h_gt⟩
-        unfold TaoGt at h_gt
-        unfold TaoGe at h_gt h_ge
-        rcases h_ge with ⟨a,eq⟩
-        rw [eq] at h_gt
-        rcases h_gt with ⟨ex,ineq⟩
-        rcases ex with ⟨b,eq_gt⟩
-        apply lemma_2_2_3 at eq_gt
-
-
-
-
+        rintro x ⟨_, ⟨⟨b, hb⟩, h_neq⟩⟩
+        obtain ⟨hx, _⟩ := corollary_2_2_9 hb.symm -- Lean Magic, but very unreadable (proves that x<0 is impossible)
+        rw [hx] at h_neq
+        contradiction
 
       | succ k ih =>
-        sorry
+          rintro x ⟨⟨⟨a, ha⟩, ha_neq⟩, ⟨⟨b, hb⟩, hb_neq⟩⟩
+          apply ih
+          unfold TaoGt TaoGe
+          exact ⟨⟨a, ha⟩, by
+            cases b with
+              | zero =>
+                rw [lemma_2_2_2] at hb
+                contradiction
+              | succ d =>
+                constructor
+
+                · -- Prove TaoGe k x (Using d as the witness)
+                  use d
+                  sorry
+
+                ·
+                  by_contra
+                  rw [this] at hb
+                  conv =>
+                    rhs
+                    rw [prop]
+                  sorry
+          ⟩
+
 
     intro m hm
 
