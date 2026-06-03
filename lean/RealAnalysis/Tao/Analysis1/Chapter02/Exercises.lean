@@ -476,8 +476,36 @@ theorem exercise_2_2_5_strong_induction
     (m0 : TaoNat) (P : TaoNat → Prop)
     (h : ∀ m, TaoGe m m0 → (∀ m', TaoGe m' m0 → TaoLt m' m → P m') → P m) :
     ∀ m, TaoGe m m0 → P m := by
-    let Q (n : TaoNat) : Prop := ∀ x : TaoNat, (m0 ≤ x ∧ x < n) → P x
+    let Q (n : TaoNat) : Prop := ∀ x : TaoNat, ( TaoGe x m0 ∧ TaoGt n x) → P x
+    have hQ : ∀ n : TaoNat, Q n := by
+      intro n
+      induction n with
+      | zero =>
+        unfold Q
+        intro x
+        have hZ : TaoGe m0 zero := by
+          unfold TaoGe
+          use m0
+          rw [prop_2_2_4,lemma_2_2_2]
+        rintro ⟨h_ge, h_gt⟩
+        unfold TaoGt at h_gt
+        unfold TaoGe at h_gt h_ge
+        rcases h_ge with ⟨a,eq⟩
+        rw [eq] at h_gt
+        rcases h_gt with ⟨ex,ineq⟩
+        rcases ex with ⟨b,eq_gt⟩
+        apply lemma_2_2_3 at eq_gt
 
+
+
+
+
+      | succ k ih =>
+        sorry
+
+    intro m hm
+
+    sorry
 
 
 end RealAnalysis.Tao.Analysis1.Ch02
