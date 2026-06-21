@@ -482,7 +482,7 @@ theorem exercise_2_2_5_strong_induction
       induction n with
       | zero =>
         rintro x ⟨_, ⟨⟨b, hb⟩, h_neq⟩⟩
-        obtain ⟨hx, _⟩ := corollary_2_2_9 hb.symm -- Lean Magic, but very unreadable (proves that x<0 is impossible)
+        obtain ⟨hx, _⟩ := corollary_2_2_9 hb.symm
         rw [hx] at h_neq
         contradiction
 
@@ -501,30 +501,36 @@ theorem exercise_2_2_5_strong_induction
               |zero =>
                 rw [lemma_2_2_2] at hk
                 apply h
-                use k
-                cases m0 with
-                |zero =>
-                  rw [zero_add]
-                  exact hk.symm
-                |succ a =>
-                  rw [hk,prop_2_2_4]
-                  conv =>
-                    lhs
-                    rw [<- lemma_2_2_2 x]
-                  congr
-                  symm
-                  change zero = 0 by => ofNat_zero
-                  apply axiom_2_3
-                  contradiction
+                exact hx_ge
+                intro m' hm_ge hm_lt
+                apply ih m'
+                rw [hk]
+                exact ⟨hm_ge,hm_lt⟩
 
-              | succ  =>
-                conv at hb =>
-                  rhs
-                  rw [lemma_2_2_3, prop_2_2_4,<- lemma_2_2_3,prop_2_2_4]
-                symm at hb
-                apply prop_2_2_6 at hb
-                contradiction
-                sorry
+              | succ a' =>
+                let gtksucc : TaoGt k x := by
+                  unfold TaoGt TaoGe
+                  constructor
+                  .
+                    use a'.succ
+                  .
+                    by_contra
+                    rw [hk] at this
+                    conv at this =>
+                      rhs
+                      rw[<- lemma_2_2_2 x]
+                    apply prop_2_2_6 at this
+                    contradiction
+
+                unfold Q at ih
+                exact ih x ⟨hx_ge, gtksucc⟩
+    intro m hge
+    apply h m hge
+    intro m' hm_ge hm_lt
+    apply hQ m m'
+    use hm_ge
+    unfold TaoLt at hm_lt
+    exact hm_lt
 
 
 end RealAnalysis.Tao.Analysis1.Ch02
