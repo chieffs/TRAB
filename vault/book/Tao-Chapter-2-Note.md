@@ -453,8 +453,6 @@ $$
 As, $x\leq m \iff x<m+1$. And thus, completing the induction.
 
 ### 2.2.6
-
-
 Let $n$ be a natural number, and let $P(m)$ be a property pertaining to the natural numbers such that whenever $P(m++)$ is true, then $P(m)$ is true. Suppose that $P(n)$ is also true. Prove that $P(m)$ is true for all natural numbers $m\leq n$.
 Lets create our inductive hypothesis:
 $$
@@ -468,5 +466,6 @@ $$
 Q(n'++):= P(n'++) \implies \forall m\leq n'++, P(m)
 $$
 We have two possibilities
-If $P(n'++)$ is true we have by our inductive hypothesis that $P(m),\forall m\leq n'$, so it is true.
+If $P(n'++)$ is true we have that $P(n'++)\implies P(n')$ by the definition of $P(m)$. Then we have, by the induction hypothesis, that $Q(n)$ is true, therefore,  $P(n')\implies \forall m(m\leq n',P(m))$, thus concluding the proof of $Q(n'++)$ as we have the property $P(m)$ true for all $m\leq n'++$.
 If $P(n'++)$ is false then we would have a statement that is also true, because it breaks our assumption of $P(n'++)$ being true, therefore $Q(n'++)$ is also true.
+### 2.2.7
