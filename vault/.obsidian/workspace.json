@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b6e4c21bcbdf8652",
+        "id": "65a99658346612b0",
         "type": "tabs",
         "children": [
           {
-            "id": "e75a9c6656a618ff",
+            "id": "748b1d8b599a43dc",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -187,10 +187,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e75a9c6656a618ff",
+  "active": "da3e14aefa29869c",
   "lastOpenFiles": [
-    "templates/Tao-Chapter-Note.md",
     "book/Tao-Chapter-2-Note.md",
+    "templates/Tao-Chapter-Note.md",
     "Excalidraw/Tao-Chapter-2-Note 2026-05-12 18.49.58.excalidraw.md",
     "Excalidraw",
     "book/tao-analysis-2",

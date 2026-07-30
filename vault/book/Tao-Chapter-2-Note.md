@@ -120,7 +120,22 @@ Addition is associative.
 For any natural numbers $a,b,c$, we have $(a+b)+c = a+(b+c)$
 
 #### Proof
-This proof is actually the exercise [[#Exercises#2.2.1|2.2.1]] and thus will be proved in exercises part.
+This proof is actually the exercise [[#|2.2.1]] and thus will be proved in the lean exercises part.
+Given two arbitrary natural numbers, $b,c$, lets prove inductively that $(a+b)+c = a+(b+c)$, inducting on $a$.
+For the base case we have $(0+b)+c = b + c$ and $0+(b+c) = (b+c)=b+c$. 
+Then, lets assume that we have a number $n$ such that $(n+b)+c=n+(b+c)$.
+Lets prove that $((n++)+b)+c=(n++)+(b+c)$.
+From the left hand side we have
+$$
+((n++)+b) + c = ((n+b)++) + c = ((n+b)+c)++ = (n+(b+c))++
+$$
+this is true from the [[#2.2.1|addition]] definition and the inductive hypothesis.
+From the hand side we have, from the definition of addition
+$$
+(n++)+(b+c) = (n+(b+c))++
+$$
+
+Thus we have reached at the same term from both sides and proved that addition is in fact associative
 
 ### Proposition 2.2.6
 Cancellation Law.
@@ -161,7 +176,13 @@ $a+b=0$ and $a$ is a positive number, but we just proved that if $a\neq 0$ $a+b$
 ### Lemma 2.2.10
 Let $a$ be a positive number. than exists exactly one natural number such that $b++=a$
 #### Proof
-This proof is the exercise [[Tao-Chapter-2-Note#Exercises#2.2.2|2.2.2]].
+This proof is the exercise 2.2.2 and will be on lean's exercise folder.
+Lets assume that exists two different natural numbers $b,c$ such that $b++=a$ and $c++=a$ with $b\neq c$. This would be a direct contradiction of axiom [[#2.4]], so we would need to have $b=c$.
+For the existence of $b$ lets construct it inductively.
+Lets construct a property $P(n):$ if $n\neq 0$ then exists $b$ such that $b++=n$.
+For the base case $P(0)$ the property is true, as $n\neq 0$ makes is vacuously true.
+Lets assume that this is true for $P(n)$, then we have
+$P(n++)$, $n++\neq 0$ from axiom [[#2.3]], then we have $b++=n++$ if $b=n$. Thus proving the induction.
 
 ### Proposition 2.2.12
 Let $a,b,c$ be natural numbers. Then:
@@ -173,75 +194,7 @@ Let $a,b,c$ be natural numbers. Then:
 5) $a<b$ if and only if $a++ \leq b$
 6) $a<b$ if and only if $b=a+d$ for some positive number d
 #### Proofs
-This proofs are the exercise [[Tao-Chapter-2-Note#Exercises#2.2.3|2.2.3]].
-
-### Proposition 2.2.13
-Trichotomy of order for natural numbers.
-Let $a,b$ be natural numbers. Then exactly one of the following statements is true:
-$$
-a<b, \, a=b, \, a>b
-$$
-
-#### Proof
-This proof is the exercise 2.2.4
-
-
-### Proposition 2.2.13
-Strong principle of induction.
-Let $m_{0}$ be a natural number, and let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m\geq m_{0}$, we have the following implication: If $P(m')$ is true for all natural numbers $m_{0}\leq m'<m$ then $P(m)$ is also true. (In particular, this means that $P(m_{0})$ is true, since in this case the hypothesis is vacuous.)Then we can conclude that $P(m)$ is true for all natural numbers $m\geq m_{0}$.
-
-#### Proof
-This proof is the exercise 2.2.5
-
-Let's start by building a property $Q(n)$, as suggested by Tao,
-$$
-Q(n):= 
-\forall \ x \ |\  m_{0}\leq x <n \ \implies P(x) \ is \ True \\
-$$
-Then we will have $Q(n)$ vacuously true whenever $n\leq m_{0}$.
-So, if $m_{0}=0$ we will have $Q(0)$ vacuously true as well, as $0\leq x<0$ is always false, as $0<0$ is a false statement.
-Lets assume inductively that $Q(m)$ is true, then we will have that $P(x)$ is true for all $m_{0}\leq x<m$. By definition of the strong induction hypothesis (If $P(m')$ is true for all natural numbers $m_{0}\leq m'<m$ then $P(m)$ is also true), we have that $P(m)$ is true in this case as well. therefore
-$$
-Q(m+1) = \forall \ x \ m_{0}\leq x < m+1 \implies P(x) \ is \ True
-$$
-We know that $P(x)$ is true for all $m_{0}\leq x\leq m$, therefore, by [[#Proposition 2.2.12]] we have 
-$$
-\forall \ x \ , \ m_{0}\leq x<m+1 \implies P(x) \ is \ True
-$$
-As, $x\leq m \iff x<m+1$. And thus, completing the induction.
-
-
-## Exercises
-
-### 2.2.1
-Prove [[Tao-Chapter-2-Note#Proposition 2.2.5]]:
-Given two arbitrary natural numbers, $b,c$, lets prove inductively that $(a+b)+c = a+(b+c)$, inducting on $a$.
-For the base case we have $(0+b)+c = b + c$ and $0+(b+c) = (b+c)=b+c$. 
-Then, lets assume that we have a number $n$ such that $(n+b)+c=n+(b+c)$.
-Lets prove that $((n++)+b)+c=(n++)+(b+c)$.
-From the left hand side we have
-$$
-((n++)+b) + c = ((n+b)++) + c = ((n+b)+c)++ = (n+(b+c))++
-$$
-this is true from the [[#2.2.1|addition]] definition and the inductive hypothesis.
-From the hand side we have, from the definition of addition
-$$
-(n++)+(b+c) = (n+(b+c))++
-$$
-
-Thus we have reached at the same term from both sides and proved that addition is in fact associative
-### 2.2.2
-Prove [[Tao-Chapter-2-Note#Lemma 2.2.10]]:
-Lets assume that exists two different natural numbers $b,c$ such that $b++=a$ and $c++=a$ with $b\neq c$. This would be a direct contradiction of axiom [[#2.4]], so we would need to have $b=c$.
-For the existence of $b$ lets construct it inductively.
-Lets construct a property $P(n):$ if $n\neq 0$ then exists $b$ such that $b++=n$.
-For the base case $P(0)$ the property is true, as $n\neq 0$ makes is vacuously true.
-Lets assume that this is true for $P(n)$, then we have
-$P(n++)$, $n++\neq 0$ from axiom [[#2.3]], then we have $b++=n++$ if $b=n$. Thus proving the induction.
-### 2.2.3
-Prove [[Tao-Chapter-2-Note#Proposition 2.2.12]]
-
-### 2.2.4
+This proofs are the exercise 2.2.3
 ##### Poof 1
 From the definition of greater than we have, for $a,b,c$ in the naturals
 $$
@@ -411,8 +364,69 @@ $$
 a+k_{1} =b \implies a<b
 $$
 
-### 2.2.5
+### Proposition 2.2.13
+Trichotomy of order for natural numbers.
+Let $a,b$ be natural numbers. Then exactly one of the following statements is true:
+$$
+a<b, \, a=b, \, a>b
+$$
 
-### 2.2.6
+#### Proof
+This proof is the exercise 2.2.4
+Let's start with the uniqueness of the trichotomy.
+Assume $a<b$ and $a>b$, this would mean that there is a $d\neq0$ such that $b = a +c$ and a $c\neq 0$ such that $b = a+d$
+$$
+\begin{align} 
+& a < a+ d \implies\\
+&a = a + d + c  \iff 0 = c+d \iff c = d = 0
+\end{align}
+$$
+Using the definition of [[#2.2.11|strictly greater than]] to see that, by definition, $a\neq b$ gives us a contradiction.
 
-### 2.2.7
+Now that we know that only one case can be true at a time we will approach the second part of the proposition, one of the statements is true.
+Lets construct a $P(x):= x<b \ \lor x=b \ \lor x>b$ where $b$ is an arbitrary natural number. We know that only one of the conditions may be true at a time.
+Lets begin for the case $P(0)$.
+$$
+P(0) = 0< b \ \lor 0 = b \lor 0>b  
+$$
+We know that $0>b$ is impossible, as this would mean that $b++ \leq 0$, a contradiction of axiom [[#2.3]]. If $b=0$ than the property is true and if we have $b\neq 0$ we have
+$$
+0<b \iff b = 0 + d
+$$
+If we use $d=b$ we have that this is true.
+Lets assume that this is true for $P(n)$, this will be our inductive hypothesis, then we will try to prove 
+$$
+P(n+1) = n+1 < b \ \lor n+1 = b \lor n+1 > b
+$$
+We know by [[#Proposition 2.2.12]] that $n<b \iff n++\leq b$, this would mean that $n++ =b \ \lor n++<b$, so for the case $n<b$ we have already proven the property. Now, for the case $n>b$  we would have by [[#Proposition 2.2.12]] as well that $n+1 > b$, from the sixth property, using $d+1$ instead of $d$. Now, for the last case we have $n = b$, then
+$$
+n+1 = b +1 \iff n+1 > b
+$$
+Therefore, $P(n+1)$ is true, thus completing the induction loop.
+
+### Proposition 2.2.13
+Strong principle of induction.
+Let $m_{0}$ be a natural number, and let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m\geq m_{0}$, we have the following implication: If $P(m')$ is true for all natural numbers $m_{0}\leq m'<m$ then $P(m)$ is also true. (In particular, this means that $P(m_{0})$ is true, since in this case the hypothesis is vacuous.)Then we can conclude that $P(m)$ is true for all natural numbers $m\geq m_{0}$.
+
+#### Proof
+This proof is the exercise 2.2.5
+
+Let's start by building a property $Q(n)$, as suggested by Tao,
+$$
+Q(n):= 
+\forall \ x \ |\  m_{0}\leq x <n \ \implies P(x) \ is \ True \\
+$$
+Then we will have $Q(n)$ vacuously true whenever $n\leq m_{0}$.
+So, if $m_{0}=0$ we will have $Q(0)$ vacuously true as well, as $0\leq x<0$ is always false, as $0<0$ is a false statement.
+Lets assume inductively that $Q(m)$ is true, then we will have that $P(x)$ is true for all $m_{0}\leq x<m$. By definition of the strong induction hypothesis (If $P(m')$ is true for all natural numbers $m_{0}\leq m'<m$ then $P(m)$ is also true), we have that $P(m)$ is true in this case as well. therefore
+$$
+Q(m+1) = \forall \ x \ m_{0}\leq x < m+1 \implies P(x) \ is \ True
+$$
+We know that $P(x)$ is true for all $m_{0}\leq x\leq m$, therefore, by [[#Proposition 2.2.12]] we have 
+$$
+\forall \ x \ , \ m_{0}\leq x<m+1 \implies P(x) \ is \ True
+$$
+As, $x\leq m \iff x<m+1$. And thus, completing the induction.
+
+## Exercises
+
