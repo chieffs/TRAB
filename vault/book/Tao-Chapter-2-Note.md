@@ -9,10 +9,10 @@ tags:
 lean_file: lean/RealAnalysis/Tao/Analysis1/Chapter02/Basic.lean
 date: 12/05/2026
 ---
-
+---
 # Ch. 2 — Natural numbers
 
-## Summary 
+## Summary (own words)
 Definition of the natural numbers from the Peano axioms and the properties that follow (Tao Ch. 2, 4th ed.).
 ## Axioms
 ### 2.1
@@ -120,7 +120,7 @@ Addition is associative.
 For any natural numbers $a,b,c$, we have $(a+b)+c = a+(b+c)$
 
 #### Proof
-This proof is actually the exercise [[#|2.2.1]] and thus will be proved in the lean exercises part.
+This proof is actually the exercise 2.2.1 and thus will be proved in the lean exercises part.
 Given two arbitrary natural numbers, $b,c$, lets prove inductively that $(a+b)+c = a+(b+c)$, inducting on $a$.
 For the base case we have $(0+b)+c = b + c$ and $0+(b+c) = (b+c)=b+c$. 
 Then, lets assume that we have a number $n$ such that $(n+b)+c=n+(b+c)$.
@@ -322,7 +322,7 @@ which would eventually lead to
 $$
 k_{1}+1=k_{1}++=0
 $$
-But that is a direct contradiction of axiom [[#2.3]]
+But that is a direct contradiction of axiom [[#2.3]]$$
 Therefore 
 $$
 a\neq b
@@ -338,8 +338,8 @@ Which is the exact definition of
 $$
 a<b
 $$
-
 ##### Proof 6
+
 We already reached half of the proof on the previous exercise, but let's recap!
 $$
 a<b \iff a+k_{1} = b \, , a\neq b
@@ -427,6 +427,3 @@ $$
 \forall \ x \ , \ m_{0}\leq x<m+1 \implies P(x) \ is \ True
 $$
 As, $x\leq m \iff x<m+1$. And thus, completing the induction.
-
-## Exercises
-

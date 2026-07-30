@@ -164,13 +164,25 @@
               "icon": "lucide-list",
               "title": "Outline of Tao-Chapter-2-Note"
             }
+          },
+          {
+            "id": "f8fa86a3bbb3f647",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "book/Tao-Chapter-2-Note.md"
+              },
+              "icon": "lucide-info",
+              "title": "File properties for Tao-Chapter-2-Note"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -187,13 +199,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "da3e14aefa29869c",
+  "active": "f86c028e744c1367",
   "lastOpenFiles": [
+    "Study-Hub.md",
+    "Excalidraw/Drawing 2026-07-29 23.39.46.excalidraw.md",
+    "Untitled.base",
+    "Excalidraw",
     "book/Tao-Chapter-2-Note.md",
     "templates/Tao-Chapter-Note.md",
     "Excalidraw/Tao-Chapter-2-Note 2026-05-12 18.49.58.excalidraw.md",
-    "Excalidraw",
-    "book/tao-analysis-2",
-    "Study-Hub.md"
+    "book/tao-analysis-2"
   ]
 }
