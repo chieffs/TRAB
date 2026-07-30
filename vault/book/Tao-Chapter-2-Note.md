@@ -401,7 +401,7 @@ a+k_{1} =b \implies a<b
 $$
 
 ### 2.2.4
-Justify the three statements in the proof of [[#Proposition 2.2.13]]: (I misread the exercise and did the full proof even though most of it was already in the book. oops)
+Justify the three statements in the proof of [[#Proposition 2.2.13]]: (I misread the exercise and did the full proof even though most of it was already in the book. But the three statements are justified in the proof so i guess its fine)
 Let's start with the uniqueness of the trichotomy.
 Assume $a<b$ and $a>b$, this would mean that there is a $d\neq0$ such that $b = a +c$ and a $c\neq 0$ such that $b = a+d$
 $$
@@ -456,3 +456,13 @@ As, $x\leq m \iff x<m+1$. And thus, completing the induction.
 
 
 Let $n$ be a natural number, and let $P(m)$ be a property pertaining to the natural numbers such that whenever $P(m++)$ is true, then $P(m)$ is true. Suppose that $P(n)$ is also true. Prove that $P(m)$ is true for all natural numbers $m\leq n$.
+Lets create our inductive hypothesis:
+$$
+Q(n) := m\leq n \implies P(m)
+$$
+In the base case $n=0$ we have two options: $m=0$ or $m<0$.
+The case $m=0$ is true by our assumption that $P(n)$ is true, in this case $n=0$.
+For the case $m<0$ we would reach a contradiction by [[#Axioms#2.3]], meaning that it would be vacuously true.
+Assuming that the hypothesis holds for an arbitrary $n=n'$, lets try to prove $Q(n'++)$ to be true.
+
+
