@@ -458,14 +458,15 @@ As, $x\leq m \iff x<m+1$. And thus, completing the induction.
 Let $n$ be a natural number, and let $P(m)$ be a property pertaining to the natural numbers such that whenever $P(m++)$ is true, then $P(m)$ is true. Suppose that $P(n)$ is also true. Prove that $P(m)$ is true for all natural numbers $m\leq n$.
 Lets create our inductive hypothesis:
 $$
-Q(n) := \forall m  \ (m\leq n \implies P(m))
+Q(n) := P(n) \implies \forall m\leq n, P(m)
 $$
-In the base case $n=0$ we have two options: $m=0$ or $m<0$.
+In the base case $n=0$ we have only one option: $m=0$.
 The case $m=0$ is true by our assumption that $P(n)$ is true, in this case $n=0$.
-For the case $m<0$ we would reach a contradiction by [[#Axioms#2.3]], meaning that it would be vacuously true.
 Assuming that the hypothesis holds for an arbitrary $n=n'$, lets try to prove $Q(n'++)$ to be true.
 By our definition of $P(m)$ whenever $P(m++)$ is true then $P(m)$ is also true. So we will have
 $$
-Q(n'++)= \forall m(m\leq n'++ \implies P(m))
+Q(n'++):= P(n'++) \implies \forall m\leq n'++, P(m)
 $$
-Our inductive hypothesis assumes that $Q(n')$ is true, therefore we have $P(n')$ is true
+We have two possibilities
+If $P(n'++)$ is true we have by our inductive hypothesis that $P(m),\forall m\leq n'$, so it is true.
+If $P(n'++)$ is false then we would have a statement that is also true, because it breaks our assumption of $P(n'++)$ being true, therefore $Q(n'++)$ is also true.
