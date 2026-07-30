@@ -469,3 +469,26 @@ We have two possibilities
 If $P(n'++)$ is true we have that $P(n'++)\implies P(n')$ by the definition of $P(m)$. Then we have, by the induction hypothesis, that $Q(n)$ is true, therefore,  $P(n')\implies \forall m(m\leq n',P(m))$, thus concluding the proof of $Q(n'++)$ as we have the property $P(m)$ true for all $m\leq n'++$.
 If $P(n'++)$ is false then we would have a statement that is also true, because it breaks our assumption of $P(n'++)$ being true, therefore $Q(n'++)$ is also true.
 ### 2.2.7
+Let $n$ be a natural number, and let $P(m)$ be a property pertaining to the natural numbers such that whenever $P(m)$ is true, then $P(m++)$ is true. Suppose that $P(n)$ is also true. Prove that $P(m)$ is true for all natural numbers $m\geq n$.
+Lets start this exercise by building the property
+$$
+Q(a) = P(n+a)
+$$
+Lets try to apply induction into this.
+For the base case we have
+$$
+Q(0) =P(n+0)=P(n)
+$$
+This is true by the base assumption of $P(n)$ being true.
+Lets assume that $Q(a')$ is true, this would imply $P(n+a')$ being true.
+For the case $Q(a'++)$ we have
+$$
+Q(a'++) = P(n+(a'++)) = P((n+a')++)
+$$
+By the definition of $P(m)$ we have that $P(m)\implies P(m++)$. 
+As we know that $P(n+a')$ is true this also implies that $P((n+a')++)$ is also true and thus completing the induction loop and proving $Q(a)$ is true for all natural numbers $a$.
+As 
+$$
+m\geq n\iff m=n+d
+$$
+We can take $d=a$ and see that this implies that $P(m)$ is true for all cases of $d$ as was just proved wi
