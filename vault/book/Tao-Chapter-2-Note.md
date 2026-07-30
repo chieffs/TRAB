@@ -120,22 +120,7 @@ Addition is associative.
 For any natural numbers $a,b,c$, we have $(a+b)+c = a+(b+c)$
 
 #### Proof
-This proof is actually the exercise 2.2.1 and thus will be proved in the lean exercises part.
-Given two arbitrary natural numbers, $b,c$, lets prove inductively that $(a+b)+c = a+(b+c)$, inducting on $a$.
-For the base case we have $(0+b)+c = b + c$ and $0+(b+c) = (b+c)=b+c$. 
-Then, lets assume that we have a number $n$ such that $(n+b)+c=n+(b+c)$.
-Lets prove that $((n++)+b)+c=(n++)+(b+c)$.
-From the left hand side we have
-$$
-((n++)+b) + c = ((n+b)++) + c = ((n+b)+c)++ = (n+(b+c))++
-$$
-this is true from the [[#2.2.1|addition]] definition and the inductive hypothesis.
-From the hand side we have, from the definition of addition
-$$
-(n++)+(b+c) = (n+(b+c))++
-$$
-
-Thus we have reached at the same term from both sides and proved that addition is in fact associative
+This proof is actually the exercise [[#Exercises#2.2.1|2.2.1]] and thus will be proved in the exercises part.
 
 ### Proposition 2.2.6
 Cancellation Law.
@@ -176,13 +161,7 @@ $a+b=0$ and $a$ is a positive number, but we just proved that if $a\neq 0$ $a+b$
 ### Lemma 2.2.10
 Let $a$ be a positive number. than exists exactly one natural number such that $b++=a$
 #### Proof
-This proof is the exercise 2.2.2 and will be on lean's exercise folder.
-Lets assume that exists two different natural numbers $b,c$ such that $b++=a$ and $c++=a$ with $b\neq c$. This would be a direct contradiction of axiom [[#2.4]], so we would need to have $b=c$.
-For the existence of $b$ lets construct it inductively.
-Lets construct a property $P(n):$ if $n\neq 0$ then exists $b$ such that $b++=n$.
-For the base case $P(0)$ the property is true, as $n\neq 0$ makes is vacuously true.
-Lets assume that this is true for $P(n)$, then we have
-$P(n++)$, $n++\neq 0$ from axiom [[#2.3]], then we have $b++=n++$ if $b=n$. Thus proving the induction.
+This proof is the exercise [[#Exercises#2.2.2|2.2.2]] and will be in the exercises part.
 
 ### Proposition 2.2.12
 Let $a,b,c$ be natural numbers. Then:
@@ -194,8 +173,63 @@ Let $a,b,c$ be natural numbers. Then:
 5) $a<b$ if and only if $a++ \leq b$
 6) $a<b$ if and only if $b=a+d$ for some positive number d
 #### Proofs
-This proofs are the exercise 2.2.3
-##### Poof 1
+This proofs are the exercise [[#Exercises#2.2.3|2.2.3]].
+
+
+### Proposition 2.2.13
+Trichotomy of order for natural numbers.
+Let $a,b$ be natural numbers. Then exactly one of the following statements is true:
+$$
+a<b, \, a=b, \, a>b
+$$
+
+#### Proof
+This proof is the exercise [[#Exercises#2.2.4|2.2.4]].
+
+
+### Proposition 2.2.14
+Strong principle of induction.
+Let $m_{0}$ be a natural number, and let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m\geq m_{0}$, we have the following implication: If $P(m')$ is true for all natural numbers $m_{0}\leq m'<m$ then $P(m)$ is also true. (In particular, this means that $P(m_{0})$ is true, since in this case the hypothesis is vacuous.)Then we can conclude that $P(m)$ is true for all natural numbers $m\geq m_{0}$.
+
+#### Proof
+This proof is the exercise [[#Exercises#2.2.5|2.2.5]].
+
+
+
+## Exercises
+
+### 2.2.1
+Prove [[#Proposition 2.2.5]]:
+
+Given two arbitrary natural numbers, $b,c$, lets prove inductively that $(a+b)+c = a+(b+c)$, inducting on $a$.
+For the base case we have $(0+b)+c = b + c$ and $0+(b+c) = (b+c)=b+c$. 
+Then, lets assume that we have a number $n$ such that $(n+b)+c=n+(b+c)$.
+Lets prove that $((n++)+b)+c=(n++)+(b+c)$.
+From the left hand side we have
+$$
+((n++)+b) + c = ((n+b)++) + c = ((n+b)+c)++ = (n+(b+c))++
+$$
+this is true from the [[#2.2.1|addition]] definition and the inductive hypothesis.
+From the hand side we have, from the definition of addition
+$$
+(n++)+(b+c) = (n+(b+c))++
+$$
+
+Thus we have reached at the same term from both sides and proved that addition is in fact associative
+
+### 2.2.2
+Prove [[#Lemma 2.2.10]]:
+
+Lets assume that exists two different natural numbers $b,c$ such that $b++=a$ and $c++=a$ with $b\neq c$. This would be a direct contradiction of axiom [[#2.4]], so we would need to have $b=c$.
+For the existence of $b$ lets construct it inductively.
+Lets construct a property $P(n):$ if $n\neq 0$ then exists $b$ such that $b++=n$.
+For the base case $P(0)$ the property is true, as $n\neq 0$ makes is vacuously true.
+Lets assume that this is true for $P(n)$, then we have
+$P(n++)$, $n++\neq 0$ from axiom [[#2.3]], then we have $b++=n++$ if $b=n$. Thus proving the induction.
+
+### 2.2.3
+Prove [[#Proposition 2.2.12]]:
+#### Poof 1
 From the definition of greater than we have, for $a,b,c$ in the naturals
 $$
 a \geq b \iff a = b+c
@@ -208,7 +242,7 @@ where $c$ is a unknown natural number. Using $c=0$ completes the proof, as
 $$
 a=a+0=a
 $$
-##### Proof 2
+#### Proof 2
 Lets unfold the definition for the cases
 $$
 \begin{cases}
@@ -225,7 +259,7 @@ $$
 a\geq c
 $$
 
-##### Proof 3
+#### Proof 3
 Lets start by unfolding the definition again for both cases
 $$
 \begin{cases}
@@ -250,7 +284,7 @@ $$
 a = b + 0 = b
 $$
 
-##### Proof 4
+#### Proof 4
 So, for this we have to prove that
 $$
 a\geq b \iff a+c \geq b+c
@@ -280,7 +314,7 @@ $$
 a\geq b\iff a+c\geq b+c
 $$
 
-##### Proof 5
+#### Proof 5
 We want to prove
 $$
 a<b \iff a++ \leq b
@@ -322,11 +356,12 @@ which would eventually lead to
 $$
 k_{1}+1=k_{1}++=0
 $$
-But that is a direct contradiction of axiom [[#2.3]]$$
+But that is a direct contradiction of axiom [[#2.3]]
 Therefore 
 $$
 a\neq b
-$$ and we know that
+$$
+and we know that
 $$
 a+1+k_{1} = b
 $$
@@ -338,7 +373,7 @@ Which is the exact definition of
 $$
 a<b
 $$
-##### Proof 6
+#### Proof 6
 
 We already reached half of the proof on the previous exercise, but let's recap!
 $$
@@ -360,19 +395,13 @@ $$
 b+k_{1} = b \iff k_{1}=0
 $$
 But we know that $k_{1}$ is different than zero, as its a positive natural number. Therefore it must imply
+
 $$
 a+k_{1} =b \implies a<b
 $$
 
-### Proposition 2.2.13
-Trichotomy of order for natural numbers.
-Let $a,b$ be natural numbers. Then exactly one of the following statements is true:
-$$
-a<b, \, a=b, \, a>b
-$$
-
-#### Proof
-This proof is the exercise 2.2.4
+### 2.2.4
+Justify the three statements in the proof of [[#Proposition 2.2.13]]: (I misread the exercise and did the full proof even though most of it was already in the book. oops)
 Let's start with the uniqueness of the trichotomy.
 Assume $a<b$ and $a>b$, this would mean that there is a $d\neq0$ such that $b = a +c$ and a $c\neq 0$ such that $b = a+d$
 $$
@@ -404,13 +433,8 @@ n+1 = b +1 \iff n+1 > b
 $$
 Therefore, $P(n+1)$ is true, thus completing the induction loop.
 
-### Proposition 2.2.13
-Strong principle of induction.
-Let $m_{0}$ be a natural number, and let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m\geq m_{0}$, we have the following implication: If $P(m')$ is true for all natural numbers $m_{0}\leq m'<m$ then $P(m)$ is also true. (In particular, this means that $P(m_{0})$ is true, since in this case the hypothesis is vacuous.)Then we can conclude that $P(m)$ is true for all natural numbers $m\geq m_{0}$.
-
-#### Proof
-This proof is the exercise 2.2.5
-
+### 2.2.5
+Prove [[#Proposition 2.2.14]]:
 Let's start by building a property $Q(n)$, as suggested by Tao,
 $$
 Q(n):= 
@@ -427,3 +451,8 @@ $$
 \forall \ x \ , \ m_{0}\leq x<m+1 \implies P(x) \ is \ True
 $$
 As, $x\leq m \iff x<m+1$. And thus, completing the induction.
+
+### 2.2.6
+
+
+Let $n$ be a natural number, and let $P(m)$ be a property pertaining to the natural numbers such that whenever $P(m++)$ is true, then $P(m)$ is true. Suppose that $P(n)$ is also true. Prove that $P(m)$ is true for all natural numbers $m\leq n$.
