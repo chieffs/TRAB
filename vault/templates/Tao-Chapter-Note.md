@@ -1,16 +1,17 @@
 ---
-book: "Tao — Analysis I"
-edition: "4th" # Lean `ChapterNN` paths follow this edition (e.g. natural numbers = Ch. 2)
+book: Tao — Analysis I
+edition: 4th
 chapter:
+Subchapter:
 chapter_slug:
-tags: [tao, analysis-1]
+tags:
+  - tao
+  - analysis-1
 lean_file:
 date:
 ---
 
 # Ch. — title
-
-## Summary (own words)
 
 ## Axioms
 

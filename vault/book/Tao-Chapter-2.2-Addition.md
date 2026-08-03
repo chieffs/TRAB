@@ -2,6 +2,7 @@
 book: Tao — Analysis I
 edition: 4th
 chapter: "2"
+Subchapter: "2"
 chapter_slug: natural-numbers
 tags:
   - tao
@@ -11,9 +12,6 @@ date: 12/05/2026
 ---
 ---
 # Ch. 2 — Natural numbers
-
-## Summary (own words)
-Definition of the natural numbers from the Peano axioms and the properties that follow (Tao Ch. 2, 4th ed.).
 ## Axioms
 ### 2.1
 0 is a natural number
@@ -491,4 +489,5 @@ As
 $$
 m\geq n\iff m=n+d
 $$
-We can take $d=a$ and see that this implies that $P(m)$ is true for all cases of $d$ as was just proved wi
+We can take $d=a$ and see that this implies that $P(m)$ is true for all cases of $d$ as was just proved with $Q(a)$.
+
