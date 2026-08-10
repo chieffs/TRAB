@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "Tao-Chapter-2.3-Multiplication"
             }
+          },
+          {
+            "id": "130da0e0d5c70ac6",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.13.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.13.4"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -41,7 +54,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -162,7 +177,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Tao-Chapter-2.3-Multiplication"
+              "title": "Outline"
             }
           },
           {
@@ -199,7 +214,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "748b1d8b599a43dc",
+  "active": "130da0e0d5c70ac6",
   "lastOpenFiles": [
     "templates/Tao-Chapter-Note.md",
     "book/Tao-Chapter-2.2-Addition.md",
