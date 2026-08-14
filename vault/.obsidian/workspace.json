@@ -22,31 +22,19 @@
             }
           },
           {
-            "id": "130da0e0d5c70ac6",
+            "id": "8b6725a1411c873e",
             "type": "leaf",
             "state": {
               "type": "release-notes",
               "state": {
-                "currentVersion": "1.13.4"
+                "currentVersion": "1.13.7"
               },
               "icon": "lucide-book-up",
-              "title": "Release Notes 1.13.4"
-            }
-          },
-          {
-            "id": "3223e0d5df9bc3db",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.13.6"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.13.6"
+              "title": "Release Notes 1.13.7"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -225,7 +213,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3223e0d5df9bc3db",
+  "active": "8b6725a1411c873e",
   "lastOpenFiles": [
     "templates/Tao-Chapter-Note.md",
     "book/Tao-Chapter-2.2-Addition.md",
